@@ -1,7 +1,7 @@
 all: RAIDIX
 
 install: RAIDIX
-	install -m 644 RAIDIX $(DESTDIR)$(prefix)
+	install -m 644 RAIDIX $(DESTDIR)
 
 RAIDIX: RAIDIX.o
 	g++ RAIDIX.o -o RAIDIX

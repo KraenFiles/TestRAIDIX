@@ -4,7 +4,6 @@ Release:	1%{?dist}
 Summary:	Development program output on display "Test task in RAIDIX!"
 License:	License
 Source0:	%{name}-%{version}.tar.gz
-
 BuildRequires:	make
 BuildRequires:	gcc-c++
 

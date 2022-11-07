@@ -22,11 +22,16 @@ make
 
 %install
 cd %{name}-%{version}
-make install DESTDIR=%{buildroot}
+make install DESTDIR=%{buildroot} prefix="./"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_DIR/*
 
 %files
+%defattr(-,755,755)
 /%{name}
+
+%post
+chmod 0755 RAIDIX
+ln -s ~/RAIDIX /usr/bin/RAIDIX

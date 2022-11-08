@@ -4,6 +4,7 @@ Release:	1%{?dist}
 Summary:	Development program output on display "Test task in RAIDIX!"
 License:	License
 Source0:	%{name}-%{version}.tar.gz
+
 BuildRequires:	make
 BuildRequires:	gcc-c++
 
@@ -21,16 +22,13 @@ make
 
 %install
 cd %{name}-%{version}
-make install DESTDIR=%{buildroot}
+mkdir -p %{buildroot}%{_bindir}
+make install DESTDIR=%{buildroot}%{_bindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_DIR/*
 
 %files
-%defattr(-,755,755)
-/%{name}
-
-%post
-chmod 0755 RAIDIX
-mv /RAIDIX %{_bindir}
+%defattr(755,root,root)
+%{_bindir}/%{name}
